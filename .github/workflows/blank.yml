@@ -1,0 +1,26 @@
+# коэффицент наклона по мнк
+def coef (k, v):
+    sumv = 0
+    sumn = 0
+    sumvn = 0
+    sumn_sq =0
+    rng = len(v)
+
+    for i in range (rng):
+        sumvn += v[i] * k[i]
+        sumn += k[i]
+        sumv += v[i]
+        sumn_sq+= int(k[i] ** 2)
+
+    k = (rng * sumvn - sumn * sumv ) / (rng * sumn_sq - (sumn)**2)
+    return k
+# погрешность по мнк
+def pog_mnk(x, y, k):
+    summ_sq_x = 0
+    summ_sq_y = 0
+    for i in range(len(x)):
+        summ_sq_x += x[i] ** 2
+        summ_sq_y += y[i] ** 2
+    coef1 = 1 / (len(x) -1 )
+    coef2 = np.mean(summ_sq_y) / np.mean((summ_sq_x))
+    return(sqrt(coef1 * coef2))
