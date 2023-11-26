@@ -1,4 +1,3 @@
-# в конец считываемого файла поставить 0
 def redar(file):
     res = ([])
     with open(file) as f:
@@ -7,4 +6,4 @@ def redar(file):
             res.append((line))
             if not line:
                 break
-    return res[:len(res) - 1]
+    return res
